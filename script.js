@@ -4,8 +4,14 @@ function showAnnouncements() {
     document.getElementById('announcements').classList.add('active');
 }
 
+function showStudentID() {
+    document.getElementById('dashboard').classList.remove('active');
+    document.getElementById('student-id').classList.add('active');
+}
+
 function showDashboard() {
     document.getElementById('announcements').classList.remove('active');
+    document.getElementById('student-id').classList.remove('active');
     document.getElementById('dashboard').classList.add('active');
 }
 
@@ -31,6 +37,22 @@ function formatCurrentTime() {
     });
 }
 
+// Function to get current study year (Dutch system: Aug-Jul)
+function getCurrentStudyYear() {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth() + 1; // getMonth() returns 0-11
+    
+    // Dutch study year: August (8) to July (7)
+    if (currentMonth >= 8) {
+        // August to December: current year - next year
+        return `${currentYear}-${currentYear + 1}`;
+    } else {
+        // January to July: previous year - current year
+        return `${currentYear - 1}-${currentYear}`;
+    }
+}
+
 // Tab switching functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Set current date and time
@@ -43,6 +65,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (currentTimeElement) {
         currentTimeElement.textContent = formatCurrentTime();
+    }
+    
+    // Set ID card timestamp
+    const idTimestampElement = document.getElementById('id-timestamp');
+    if (idTimestampElement) {
+        const now = new Date();
+        const options = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
+        idTimestampElement.textContent = now.toLocaleDateString('en-US', options);
+    }
+    
+    // Set study year
+    const studyYearElement = document.getElementById('study-year');
+    if (studyYearElement) {
+        studyYearElement.textContent = getCurrentStudyYear();
     }
     
     // Update time every minute

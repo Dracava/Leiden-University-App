@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leiden University App - Aleksandar Ivanov</title>
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" href="leiden-logo.png">
+    <link rel="apple-touch-icon" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="leiden-logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="leiden-logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="leiden-logo.png">
+    <link rel="shortcut icon" href="leiden-logo.png">
+    <link rel="mask-icon" href="leiden-logo.png" color="#001157">
+    <meta name="msapplication-TileColor" content="#001157">
+    <meta name="msapplication-TileImage" content="leiden-logo.png">
+    <meta name="theme-color" content="#001157">
+    
+    <!-- Meta tags for search engines and social sharing -->
+    <meta name="description" content="Aleksandar Ivanov - Leiden University Student Portal">
+    <meta name="keywords" content="Leiden University, student portal, Aleksandar Ivanov">
+    <meta name="author" content="Leiden University">
+    
+    <!-- Open Graph tags for social media -->
+    <meta property="og:title" content="Aleksandar Ivanov - Leiden University">
+    <meta property="og:description" content="Student portal for Aleksandar Ivanov">
+    <meta property="og:image" content="leiden-logo.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Aleksandar Ivanov - Leiden University">
+    <meta name="twitter:description" content="Student portal for Aleksandar Ivanov">
+    <meta name="twitter:image" content="leiden-logo.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Dashboard Screen -->
+        <div class="screen dashboard-screen active" id="dashboard">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <i class="fas fa-bars menu-icon"></i>
+                    <div class="title-section">
+                        <img src="leiden-logo.png" alt="Leiden University Logo" class="logo">
+                        <h1 class="app-title">Leiden University App</h1>
+                    </div>
+                    <div class="header-icons">
+                        <i class="far fa-bell"></i>
+                        <i class="far fa-cog"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="timeline-section">
+                <div class="timeline-header">
+                    <h3>TODAY'S TIMELINE</h3>
+                    <div class="date-time-row">
+                        <p class="date" id="current-date">Loading...</p>
+                        <div class="time-container">
+                            <i class="far fa-clock time-icon"></i>
+                            <p class="time" id="current-time">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-cards">
+                    <div class="no-activities">
+                        <i class="far fa-calendar-times"></i>
+                        <p>No activities scheduled for today</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Grid -->
+            <div class="nav-grid">
+                <div class="nav-item student-id" onclick="showStudentID()">
+                    <i class="fas fa-id-card nav-icon"></i>
+                    <span>Student ID</span>
+                </div>
+                <div class="nav-item announcements" onclick="showAnnouncements()">
+                    <i class="fas fa-bullhorn nav-icon"></i>
+                    <span>Announcements</span>
+                </div>
+                <div class="nav-item calendar">
+                    <i class="fas fa-calendar nav-icon"></i>
+                    <span>My Calendar</span>
+                </div>
+                <div class="nav-item results">
+                    <i class="fas fa-chart-line nav-icon"></i>
+                    <span>Results</span>
+                </div>
+                <div class="nav-item progress">
+                    <i class="fas fa-chart-bar nav-icon"></i>
+                    <span>Progress</span>
+                </div>
+                <div class="nav-item enrollments">
+                    <i class="fas fa-user-graduate nav-icon"></i>
+                    <span>Class Enrollments</span>
+                </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <div class="bottom-nav">
+                <div class="nav-tab active">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-tab">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Around Me</span>
+                </div>
+                <div class="nav-tab">
+                    <i class="fas fa-comments"></i>
+                    <span>Messaging</span>
+                </div>
+                <div class="nav-tab">
+                    <i class="fas fa-bars"></i>
+                    <span>Main Menu</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Announcements Screen -->
+        <div class="screen announcements-screen" id="announcements">
+            <!-- Header -->
+            <div class="header dark">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
+                    <h1 class="app-title">Announcements</h1>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <div class="tab active">All Items</div>
+                <div class="tab">Exams</div>
+                <div class="tab">Classes</div>
+                <div class="tab">General</div>
+                <div class="tab">Sports</div>
+            </div>
+
+            <!-- Announcements List -->
+            <div class="announcements-list">
+                <div class="announcement-card">
+                    <div class="card-tag exams">EXAMS</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Update on CS8214 - Postponed to next week due to unforeseen circumstances.</p>
+                        <span class="timestamp">10:40 AM</span>
+                    </div>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="card-tag general">GENERAL</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Students with less than 65% of attendance will be reprimanded by the end of this quarter.</p>
+                        <span class="timestamp">2d ago</span>
+                    </div>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="card-tag sports">SPORTS</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Introducing two new teams for our Annual Basketball championship!</p>
+                        <span class="timestamp">4d ago</span>
+                    </div>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="card-tag classes">CLASSES</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Smartclass password change alert.</p>
+                        <span class="timestamp">4d ago</span>
+                    </div>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="card-tag general">GENERAL</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Students with less than 65% of attendance will be reprimanded by the end of this quarter.</p>
+                        <span class="timestamp">5d ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student ID Screen -->
+        <div class="screen student-id-screen" id="student-id">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
+                    <h1 class="app-title">Student ID</h1>
+                    <div class="header-icons">
+                        <i class="far fa-bell"></i>
+                        <i class="fas fa-cog"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ID Card -->
+            <div class="id-card-container">
+                <div class="id-card">
+                    <!-- Card Header -->
+                    <div class="card-header">
+                        <div class="university-info">
+                            <img src="leiden-logo.png" alt="Leiden University Logo" class="header-logo">
+                            <h2>Leiden University</h2>
+                        </div>
+                    </div>
+
+                    <!-- Card Content -->
+                    <div class="card-content">
+                        <div class="photo-section">
+                            <div class="student-photo">
+                                <img src="aleksandar.heic" alt="Aleksandar Ivanov">
+                            </div>
+                            <div class="student-label">STUDENT</div>
+                        </div>
+                        
+                        <div class="info-grid">
+                            <div class="info-column">
+                                <div class="info-row">
+                                    <span class="label">Name</span>
+                                    <span class="value">Aleksandar Ivanov</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="label">Study</span>
+                                    <span class="value">Media Technology</span>
+                                </div>
+                            </div>
+                            <div class="info-column">
+                                <div class="info-row">
+                                    <span class="label">Student ID</span>
+                                    <span class="value">s2157892</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="label">Study Year</span>
+                                    <span class="value" id="study-year">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QR Code Section -->
+                    <div class="qr-section">
+                        <div class="qr-code">
+                            <div class="qr-placeholder">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                        </div>
+                        <div class="qr-info">
+                            <div class="update-title">Most recent update:</div>
+                            <div class="timestamp" id="id-timestamp">Loading...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
