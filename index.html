@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leiden University App</title>
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" href="leiden-logo.png">
+    <link rel="apple-touch-icon" href="leiden-logo.png">
+    
+    <!-- Meta tags for search engines and social sharing -->
+    <meta name="description" content="Official Leiden University mobile app for students and staff">
+    <meta name="keywords" content="Leiden University, student app, university, education">
+    <meta name="author" content="Leiden University">
+    
+    <!-- Open Graph tags for social media -->
+    <meta property="og:title" content="Leiden University App">
+    <meta property="og:description" content="Official Leiden University mobile app for students and staff">
+    <meta property="og:image" content="leiden-logo.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Leiden University App">
+    <meta name="twitter:description" content="Official Leiden University mobile app for students and staff">
+    <meta name="twitter:image" content="leiden-logo.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Dashboard Screen -->
+        <div class="screen dashboard-screen active" id="dashboard">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <i class="fas fa-bars menu-icon"></i>
+                    <div class="title-section">
+                        <img src="leiden-logo.png" alt="Leiden University Logo" class="logo">
+                        <h1 class="app-title">Leiden University App</h1>
+                    </div>
+                    <i class="fas fa-sync-alt refresh-icon" onclick="location.reload()"></i>
+                </div>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="timeline-section">
+                <div class="timeline-header">
+                    <h3>TODAY'S TIMELINE</h3>
+                    <div class="date-time-row">
+                        <p class="date" id="current-date">Loading...</p>
+                                                    <div class="time-container">
+                                <i class="far fa-clock time-icon"></i>
+                                <p class="time" id="current-time">Loading...</p>
+                            </div>
+                    </div>
+                </div>
+                <div class="timeline-cards">
+                                            <div class="no-activities">
+                            <i class="far fa-calendar-times"></i>
+                            <p>No activities scheduled for today</p>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Navigation Grid -->
+            <div class="nav-grid">
+                <div class="nav-item student-id">
+                    <i class="fas fa-id-card nav-icon"></i>
+                    <span>Student ID</span>
+                </div>
+                <div class="nav-item announcements" onclick="showAnnouncements()">
+                    <i class="fas fa-bullhorn nav-icon"></i>
+                    <span>Announcements</span>
+                </div>
+                <div class="nav-item calendar">
+                    <i class="fas fa-calendar nav-icon"></i>
+                    <span>My Calendar</span>
+                </div>
+                <div class="nav-item results">
+                    <i class="fas fa-chart-line nav-icon"></i>
+                    <span>Results</span>
+                </div>
+                <div class="nav-item progress">
+                    <i class="fas fa-chart-bar nav-icon"></i>
+                    <span>Progress</span>
+                </div>
+                <div class="nav-item enrollments">
+                    <i class="fas fa-user-graduate nav-icon"></i>
+                    <span>Class Enrollments</span>
+                </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <div class="bottom-nav">
+                <div class="nav-tab active">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-tab">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Around Me</span>
+                </div>
+                <div class="nav-tab">
+                    <i class="fas fa-comments"></i>
+                    <span>Messaging</span>
+                </div>
+                <div class="nav-tab">
+                    <i class="fas fa-bars"></i>
+                    <span>Main Menu</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Announcements Screen -->
+        <div class="screen announcements-screen" id="announcements">
+            <!-- Header -->
+            <div class="header dark">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
+                    <h1 class="app-title">Announcements</h1>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <div class="tab active">All Items</div>
+                <div class="tab">Exams</div>
+                <div class="tab">Classes</div>
+                <div class="tab">General</div>
+                <div class="tab">Sports</div>
+            </div>
+
+            <!-- Announcements List -->
+            <div class="announcements-list">
+                <div class="announcement-card">
+                    <div class="card-tag exams">EXAMS</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Update on CS8214 - Postponed to next week due to unforeseen circumstances.</p>
+                        <span class="timestamp">10:40 AM</span>
+                    </div>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="card-tag general">GENERAL</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Students with less than 65% of attendance will be reprimanded by the end of this quarter.</p>
+                        <span class="timestamp">2d ago</span>
+                    </div>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="card-tag sports">SPORTS</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Introducing two new teams for our Annual Basketball championship!</p>
+                        <span class="timestamp">4d ago</span>
+                    </div>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="card-tag classes">CLASSES</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Smartclass password change alert.</p>
+                        <span class="timestamp">4d ago</span>
+                    </div>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="card-tag general">GENERAL</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Students with less than 65% of attendance will be reprimanded by the end of this quarter.</p>
+                        <span class="timestamp">5d ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
