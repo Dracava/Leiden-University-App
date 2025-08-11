@@ -102,7 +102,7 @@
                     <i class="fas fa-chart-line nav-icon"></i>
                     <span>Results</span>
                 </div>
-                <div class="nav-item progress">
+                <div class="nav-item progress" onclick="showProgress()">
                     <i class="fas fa-chart-bar nav-icon"></i>
                     <span>Progress</span>
                 </div>
@@ -139,7 +139,14 @@
             <div class="header dark">
                 <div class="header-content">
                     <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
-                    <h1 class="app-title">Announcements</h1>
+                    <div class="title-section">
+                        <img src="leiden-logo.png" alt="Leiden University Logo" class="logo">
+                        <h1 class="app-title">Announcements</h1>
+                    </div>
+                    <div class="header-icons">
+                        <i class="far fa-bell"></i>
+                        <i class="fas fa-cog"></i>
+                    </div>
                 </div>
             </div>
 
@@ -207,7 +214,10 @@
             <div class="header">
                 <div class="header-content">
                     <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
-                    <h1 class="app-title">Results</h1>
+                    <div class="title-section">
+                        <img src="leiden-logo.png" alt="Leiden University Logo" class="logo">
+                        <h1 class="app-title">Results</h1>
+                    </div>
                     <div class="header-icons">
                         <i class="far fa-bell"></i>
                         <i class="fas fa-cog"></i>
@@ -427,13 +437,94 @@
             </div>
         </div>
 
+        <!-- Progress Screen -->
+        <div class="screen progress-screen" id="progress">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
+                    <div class="title-section">
+                        <img src="leiden-logo.png" alt="Leiden University Logo" class="logo">
+                        <h1 class="app-title">Progress</h1>
+                    </div>
+                    <div class="header-icons">
+                        <i class="far fa-bell"></i>
+                        <i class="fas fa-cog"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Content -->
+            <div class="progress-container">
+                <div class="progress-overview">
+                    <h2>Credit Progress</h2>
+                    <p>Total Required: 120 EC</p>
+                </div>
+                
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill completed" style="width: 67%"></div>
+                        <div class="progress-fill in-progress" style="width: 15%"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span class="progress-label">0</span>
+                        <span class="progress-label">30</span>
+                        <span class="progress-label">60</span>
+                        <span class="progress-label">90</span>
+                        <span class="progress-label">120</span>
+                    </div>
+                </div>
+
+                <div class="progress-legend">
+                    <div class="legend-item">
+                        <div class="legend-color completed"></div>
+                        <span>Completed Credits: 80 EC</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color in-progress"></div>
+                        <span>In Progress: 18 EC</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color remaining"></div>
+                        <span>Remaining: 22 EC</span>
+                    </div>
+                </div>
+
+                <div class="progress-details">
+                    <div class="progress-section">
+                        <h3>First Year Progress</h3>
+                        <div class="year-progress">
+                            <div class="year-bar">
+                                <div class="year-fill completed" style="width: 100%"></div>
+                            </div>
+                            <span class="year-text">60/60 EC (100%)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-section">
+                        <h3>Second Year Progress</h3>
+                        <div class="year-progress">
+                            <div class="year-bar">
+                                <div class="year-fill completed" style="width: 33%"></div>
+                                <div class="year-fill in-progress" style="width: 30%"></div>
+                            </div>
+                            <span class="year-text">20/60 EC (33%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Student ID Screen -->
         <div class="screen student-id-screen" id="student-id">
             <!-- Header -->
             <div class="header">
                 <div class="header-content">
                     <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
-                    <h1 class="app-title">Student ID</h1>
+                    <div class="title-section">
+                        <img src="leiden-logo.png" alt="Leiden University Logo" class="logo">
+                        <h1 class="app-title">Student ID</h1>
+                    </div>
                     <div class="header-icons">
                         <i class="far fa-bell"></i>
                         <i class="fas fa-cog"></i>

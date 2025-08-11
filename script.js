@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Validate student number format (should start with 's' followed by 7 digits)
             if (!username.match(/^s\d{7}$/)) {
-                showLoginError('Please enter a valid student number (e.g., s2171023)');
+                showLoginError('Please enter a valid student number');
                 highlightInputError('username');
                 return;
             }
@@ -172,6 +172,7 @@ function showDashboard() {
     document.getElementById('announcements').classList.remove('active');
     document.getElementById('student-id').classList.remove('active');
     document.getElementById('results').classList.remove('active');
+    document.getElementById('progress').classList.remove('active');
     document.getElementById('dashboard').classList.add('active');
 }
 
@@ -179,7 +180,16 @@ function showResults() {
     document.getElementById('dashboard').classList.remove('active');
     document.getElementById('announcements').classList.remove('active');
     document.getElementById('student-id').classList.remove('active');
+    document.getElementById('progress').classList.remove('active');
     document.getElementById('results').classList.add('active');
+}
+
+function showProgress() {
+    document.getElementById('dashboard').classList.remove('active');
+    document.getElementById('announcements').classList.remove('active');
+    document.getElementById('student-id').classList.remove('active');
+    document.getElementById('results').classList.remove('active');
+    document.getElementById('progress').classList.add('active');
 }
 
 // Function to show loading screen for Student ID
