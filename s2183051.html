@@ -98,7 +98,7 @@
                     <i class="fas fa-calendar nav-icon"></i>
                     <span>My Calendar</span>
                 </div>
-                <div class="nav-item results">
+                <div class="nav-item results" onclick="showResults()">
                     <i class="fas fa-chart-line nav-icon"></i>
                     <span>Results</span>
                 </div>
@@ -149,7 +149,6 @@
                 <div class="tab">Exams</div>
                 <div class="tab">Classes</div>
                 <div class="tab">General</div>
-                <div class="tab">Sports</div>
             </div>
 
             <!-- Announcements List -->
@@ -176,16 +175,7 @@
                     </div>
                 </div>
 
-                <div class="announcement-card">
-                    <div class="card-tag sports">SPORTS</div>
-                    <div class="card-menu">
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                    <div class="card-content">
-                        <p>Introducing two new teams for our Annual Basketball championship!</p>
-                        <span class="timestamp">4d ago</span>
-                    </div>
-                </div>
+
 
                 <div class="announcement-card">
                     <div class="card-tag classes">CLASSES</div>
@@ -206,6 +196,233 @@
                     <div class="card-content">
                         <p>Students with less than 65% of attendance will be reprimanded by the end of this quarter.</p>
                         <span class="timestamp">5d ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div class="screen results-screen" id="results">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
+                    <h1 class="app-title">Results</h1>
+                    <div class="header-icons">
+                        <i class="far fa-bell"></i>
+                        <i class="fas fa-cog"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Content -->
+            <div class="results-container">
+                <div class="results-summary">
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Completed</h3>
+                            <p>15 courses</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>In Progress</h3>
+                            <p>4 courses</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Failed</h3>
+                            <p>4 courses</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-sections">
+                    <!-- First Year Results -->
+                    <div class="year-section">
+                        <h3>First Year</h3>
+                        <div class="semester-group">
+                            <h4>Semester 1</h4>
+                            <div class="course-results">
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Media Technology Field Trip</h5>
+                                        <span class="credits">1 EC</span>
+                                    </div>
+                                    <div class="grade">6.0</div>
+                                </div>
+                                <div class="course-result failed">
+                                    <div class="course-info">
+                                        <h5>Research Fundamentals</h5>
+                                        <span class="credits">3 EC</span>
+                                    </div>
+                                    <div class="grade">4.0</div>
+                                    <div class="grade-label">Failed</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Strategies in Creative and Performing Arts</h5>
+                                        <span class="credits">3 EC</span>
+                                    </div>
+                                    <div class="grade">6.5</div>
+                                </div>
+                                <div class="course-result failed">
+                                    <div class="course-info">
+                                        <h5>Creative Programming</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">3.5</div>
+                                    <div class="grade-label">Failed</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Human-Computer Interaction and Information Visualization</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">6.0</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Playful and Creative Science</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">6.5</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Hardware and Physical Computing</h5>
+                                        <span class="credits">3 EC</span>
+                                    </div>
+                                    <div class="grade">6.0</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Meta Media</h5>
+                                        <span class="credits">2 EC</span>
+                                    </div>
+                                    <div class="grade">7.0</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="semester-group">
+                            <h4>Semester 2</h4>
+                            <div class="course-results">
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Non-human Cognition</h5>
+                                        <span class="credits">4 EC</span>
+                                    </div>
+                                    <div class="grade">6.5</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Artificial Creatures</h5>
+                                        <span class="credits">4 EC</span>
+                                    </div>
+                                    <div class="grade">6.0</div>
+                                </div>
+                                <div class="course-result failed">
+                                    <div class="course-info">
+                                        <h5>Sound, Space and Interaction</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">4.5</div>
+                                    <div class="grade-label">Failed</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Exhibition: Science to Experience</h5>
+                                        <span class="credits">12 EC</span>
+                                    </div>
+                                    <div class="grade">6.5</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Sciences and Humanities</h5>
+                                        <span class="credits">4 EC</span>
+                                    </div>
+                                    <div class="grade">6.0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second Year Results -->
+                    <div class="year-section">
+                        <h3>Second Year</h3>
+                        <div class="semester-group">
+                            <h4>Current Semester</h4>
+                            <div class="course-results">
+                                <div class="course-result in-progress">
+                                    <div class="course-info">
+                                        <h5>Graduation Lab</h5>
+                                        <span class="credits">1 EC</span>
+                                    </div>
+                                    <div class="grade">In Progress</div>
+                                </div>
+                                <div class="course-result in-progress">
+                                    <div class="course-info">
+                                        <h5>Graduation Project</h5>
+                                        <span class="credits">30 EC</span>
+                                    </div>
+                                    <div class="grade">In Progress</div>
+                                </div>
+                                <div class="course-result in-progress">
+                                    <div class="course-info">
+                                        <h5>Portfolio</h5>
+                                        <span class="credits">1 EC</span>
+                                    </div>
+                                    <div class="grade">In Progress</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>AI in Society</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">6.0</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Computational Creativity</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">6.5</div>
+                                </div>
+                                <div class="course-result in-progress">
+                                    <div class="course-info">
+                                        <h5>Innovative Methods in Science Communication and Society</h5>
+                                        <span class="credits">3 EC</span>
+                                    </div>
+                                    <div class="grade">In Progress</div>
+                                </div>
+                                <div class="course-result failed">
+                                    <div class="course-info">
+                                        <h5>Research Seminar Artificial Intelligence</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">3.0</div>
+                                    <div class="grade-label">Failed</div>
+                                </div>
+                                <div class="course-result in-progress">
+                                    <div class="course-info">
+                                        <h5>Video Games for Research</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">In Progress</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -278,11 +495,22 @@
                         </div>
                         <div class="qr-info">
                             <div class="update-title">Most recent update:</div>
-                            <div class="timestamp" id="id-timestamp">Loading...</div>
+                            <div class="timestamp-row">
+                                <div class="timestamp" id="id-timestamp">Loading...</div>
+                                <i class="fas fa-sync-alt refresh-icon" id="refresh-timestamp" onclick="refreshTimestamp()"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Refreshing...</p>
         </div>
     </div>
 
