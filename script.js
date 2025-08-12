@@ -53,7 +53,8 @@ function checkStudentPageExists(studentNumber) {
         's2171023', // Daphne Varekamp
         's2169487', // Smaranda Franciuc
         's2157892', // Aleksandar Ivanov
-        's2183051'  // Florin Stoica
+        's2183051', // Florin Stoica
+        's3728099'  // Hua Lin
     ];
     
     return validStudentNumbers.includes(studentNumber);
