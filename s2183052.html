@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leiden University App - Chiini Lin</title>
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" href="leiden-logo.png">
+    <link rel="apple-touch-icon" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="leiden-logo.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="leiden-logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="leiden-logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="leiden-logo.png">
+    <link rel="shortcut icon" href="leiden-logo.png">
+    <link rel="mask-icon" href="leiden-logo.png" color="#001157">
+    <meta name="msapplication-TileColor" content="#001157">
+    <meta name="msapplication-TileImage" content="leiden-logo.png">
+    <meta name="theme-color" content="#001157">
+    
+    <!-- Meta tags for search engines and social sharing -->
+    <meta name="description" content="Chiini Lin - Leiden University Student Portal">
+    <meta name="keywords" content="Leiden University, student portal, Chiini Lin">
+    <meta name="author" content="Leiden University">
+    
+    <!-- Open Graph tags for social media -->
+    <meta property="og:title" content="Chiini Lin - Leiden University">
+    <meta property="og:description" content="Student portal for Chiini Lin">
+    <meta property="og:image" content="leiden-logo.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Chiini Lin - Leiden University">
+    <meta name="twitter:description" content="Student portal for Chiini Lin">
+    <meta name="twitter:image" content="leiden-logo.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Dashboard Screen -->
+        <div class="screen dashboard-screen active" id="dashboard">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <i class="fas fa-bars menu-icon"></i>
+                    <div class="title-section">
+                        <img src="leiden-logo.png" alt="Leiden University Logo" class="logo">
+                        <h1 class="app-title">Leiden University App</h1>
+                    </div>
+                    <div class="header-icons">
+                        <i class="far fa-bell"></i>
+                        <i class="far fa-cog"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="timeline-section">
+                <div class="timeline-header">
+                    <h3>TODAY'S TIMELINE</h3>
+                    <div class="date-time-row">
+                        <p class="date" id="current-date">Loading...</p>
+                        <div class="time-container">
+                            <i class="far fa-clock time-icon"></i>
+                            <p class="time" id="current-time">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-cards">
+                    <div class="no-activities">
+                        <i class="far fa-calendar-times"></i>
+                        <p>No activities scheduled for today</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Grid -->
+            <div class="nav-grid">
+                <div class="nav-item student-id" onclick="showStudentID()">
+                    <i class="fas fa-id-card nav-icon"></i>
+                    <span>Student ID</span>
+                </div>
+                <div class="nav-item announcements" onclick="showAnnouncements()">
+                    <i class="fas fa-bullhorn nav-icon"></i>
+                    <span>Announcements</span>
+                </div>
+                <div class="nav-item calendar">
+                    <i class="fas fa-calendar nav-icon"></i>
+                    <span>My Calendar</span>
+                </div>
+                <div class="nav-item results" onclick="showResults()">
+                    <i class="fas fa-chart-line nav-icon"></i>
+                    <span>Results</span>
+                </div>
+                <div class="nav-item progress" onclick="showProgress()">
+                    <i class="fas fa-chart-bar nav-icon"></i>
+                    <span>Progress</span>
+                </div>
+                <div class="nav-item enrollments">
+                    <i class="fas fa-user-graduate nav-icon"></i>
+                    <span>Class Enrollments</span>
+                </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <div class="bottom-nav">
+                <div class="nav-tab active">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-tab">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Around Me</span>
+                </div>
+                <div class="nav-tab">
+                    <i class="fas fa-comments"></i>
+                    <span>Messaging</span>
+                </div>
+                <div class="nav-tab">
+                    <i class="fas fa-bars"></i>
+                    <span>Main Menu</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Announcements Screen -->
+        <div class="screen announcements-screen" id="announcements">
+            <!-- Header -->
+            <div class="header dark">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
+                    <div class="title-section">
+                        <img src="leiden-logo.png" alt="Leiden University Logo" class="logo">
+                        <h1 class="app-title">Announcements</h1>
+                    </div>
+                    <div class="header-icons">
+                        <i class="far fa-bell"></i>
+                        <i class="fas fa-cog"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <div class="tab active">All Items</div>
+                <div class="tab">Exams</div>
+                <div class="tab">Classes</div>
+                <div class="tab">General</div>
+            </div>
+
+            <!-- Announcements List -->
+            <div class="announcements-list">
+                <div class="announcement-card">
+                    <div class="card-tag exams">EXAMS</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Update on CS8214 - Postponed to next week due to unforeseen circumstances.</p>
+                        <span class="timestamp">10:40 AM</span>
+                    </div>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="card-tag general">GENERAL</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Students with less than 65% of attendance will be reprimanded by the end of this quarter.</p>
+                        <span class="timestamp">2d ago</span>
+                    </div>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="card-tag classes">CLASSES</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Smartclass password change alert.</p>
+                        <span class="timestamp">4d ago</span>
+                    </div>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="card-tag general">GENERAL</div>
+                    <div class="card-menu">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="card-content">
+                        <p>Students with less than 65% of attendance will be reprimanded by the end of this quarter.</p>
+                        <span class="timestamp">5d ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div class="screen results-screen" id="results">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
+                    <div class="title-section">
+                        <img src="leiden-logo.png" alt="Leiden University Logo" class="logo">
+                        <h1 class="app-title">Results</h1>
+                    </div>
+                    <div class="header-icons">
+                        <i class="far fa-bell"></i>
+                        <i class="fas fa-cog"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Content -->
+            <div class="results-container">
+                <div class="results-summary">
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Completed</h3>
+                            <p>12 courses</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>In Progress</h3>
+                            <p>6 courses</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="summary-content">
+                            <h3>Failed</h3>
+                            <p>2 courses</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-sections">
+                    <!-- First Year Results -->
+                    <div class="year-section">
+                        <h3>First Year</h3>
+                        <div class="semester-group">
+                            <h4>Semester 1</h4>
+                            <div class="course-results">
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Media Technology Field Trip</h5>
+                                        <span class="credits">1 EC</span>
+                                    </div>
+                                    <div class="grade">7.0</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Research Fundamentals</h5>
+                                        <span class="credits">3 EC</span>
+                                    </div>
+                                    <div class="grade">7.5</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Strategies in Creative and Performing Arts</h5>
+                                        <span class="credits">3 EC</span>
+                                    </div>
+                                    <div class="grade">8.0</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Creative Programming</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">7.0</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Human-Computer Interaction and Information Visualization</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">7.5</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Playful and Creative Science</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">8.0</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Hardware and Physical Computing</h5>
+                                        <span class="credits">3 EC</span>
+                                    </div>
+                                    <div class="grade">7.0</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Meta Media</h5>
+                                        <span class="credits">2 EC</span>
+                                    </div>
+                                    <div class="grade">7.5</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="semester-group">
+                            <h4>Semester 2</h4>
+                            <div class="course-results">
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Non-human Cognition</h5>
+                                        <span class="credits">4 EC</span>
+                                    </div>
+                                    <div class="grade">7.5</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Artificial Creatures</h5>
+                                        <span class="credits">4 EC</span>
+                                    </div>
+                                    <div class="grade">8.0</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Sound, Space and Interaction</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">7.0</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Exhibition: Science to Experience</h5>
+                                        <span class="credits">12 EC</span>
+                                    </div>
+                                    <div class="grade">8.5</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Sciences and Humanities</h5>
+                                        <span class="credits">4 EC</span>
+                                    </div>
+                                    <div class="grade">7.5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second Year Results -->
+                    <div class="year-section">
+                        <h3>Second Year</h3>
+                        <div class="semester-group">
+                            <h4>Current Semester</h4>
+                            <div class="course-results">
+                                <div class="course-result in-progress">
+                                    <div class="course-info">
+                                        <h5>Graduation Lab</h5>
+                                        <span class="credits">1 EC</span>
+                                    </div>
+                                    <div class="grade">In Progress</div>
+                                </div>
+                                <div class="course-result in-progress">
+                                    <div class="course-info">
+                                        <h5>Graduation Project</h5>
+                                        <span class="credits">30 EC</span>
+                                    </div>
+                                    <div class="grade">In Progress</div>
+                                </div>
+                                <div class="course-result in-progress">
+                                    <div class="course-info">
+                                        <h5>Portfolio</h5>
+                                        <span class="credits">1 EC</span>
+                                    </div>
+                                    <div class="grade">In Progress</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>AI in Society</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">8.0</div>
+                                </div>
+                                <div class="course-result passed">
+                                    <div class="course-info">
+                                        <h5>Computational Creativity</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">7.5</div>
+                                </div>
+                                <div class="course-result in-progress">
+                                    <div class="course-info">
+                                        <h5>Innovative Methods in Science Communication and Society</h5>
+                                        <span class="credits">3 EC</span>
+                                    </div>
+                                    <div class="grade">In Progress</div>
+                                </div>
+                                <div class="course-result failed">
+                                    <div class="course-info">
+                                        <h5>Research Seminar Artificial Intelligence</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">4.5</div>
+                                    <div class="grade-label">Failed</div>
+                                </div>
+                                <div class="course-result in-progress">
+                                    <div class="course-info">
+                                        <h5>Video Games for Research</h5>
+                                        <span class="credits">6 EC</span>
+                                    </div>
+                                    <div class="grade">In Progress</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Screen -->
+        <div class="screen progress-screen" id="progress">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
+                    <div class="title-section">
+                        <img src="leiden-logo.png" alt="Leiden University Logo" class="logo">
+                        <h1 class="app-title">Progress</h1>
+                    </div>
+                    <div class="header-icons">
+                        <i class="far fa-bell"></i>
+                        <i class="fas fa-cog"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Content -->
+            <div class="progress-container">
+                <div class="progress-overview">
+                    <h2>Credit Progress</h2>
+                    <p>Total Required: 120 EC</p>
+                </div>
+                
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill completed" style="width: 60%"></div>
+                        <div class="progress-fill in-progress" style="width: 18%"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span class="progress-label">0</span>
+                        <span class="progress-label">30</span>
+                        <span class="progress-label">60</span>
+                        <span class="progress-label">90</span>
+                        <span class="progress-label">120</span>
+                    </div>
+                </div>
+
+                <div class="progress-legend">
+                    <div class="legend-item">
+                        <div class="legend-color completed"></div>
+                        <span>Completed Credits: 72 EC</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color in-progress"></div>
+                        <span>In Progress: 22 EC</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color remaining"></div>
+                        <span>Remaining: 26 EC</span>
+                    </div>
+                </div>
+
+                <div class="progress-details">
+                    <div class="progress-section">
+                        <h3>First Year Progress</h3>
+                        <div class="year-progress">
+                            <div class="year-bar">
+                                <div class="year-fill completed" style="width: 100%"></div>
+                            </div>
+                            <span class="year-text">60/60 EC (100%)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-section">
+                        <h3>Second Year Progress</h3>
+                        <div class="year-progress">
+                            <div class="year-bar">
+                                <div class="year-fill completed" style="width: 20%"></div>
+                                <div class="year-fill in-progress" style="width: 37%"></div>
+                            </div>
+                            <span class="year-text">12/60 EC (20%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student ID Screen -->
+        <div class="screen student-id-screen" id="student-id">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-content">
+                    <i class="fas fa-arrow-left back-icon" onclick="showDashboard()"></i>
+                    <div class="title-section">
+                        <img src="leiden-logo.png" alt="Leiden University Logo" class="logo">
+                        <h1 class="app-title">Student ID</h1>
+                    </div>
+                    <div class="header-icons">
+                        <i class="far fa-bell"></i>
+                        <i class="fas fa-cog"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ID Card -->
+            <div class="id-card-container">
+                <div class="id-card">
+                    <!-- Card Header -->
+                    <div class="card-header">
+                        <div class="university-info">
+                            <img src="leiden-logo.png" alt="Leiden University Logo" class="header-logo">
+                            <h2>Leiden University</h2>
+                        </div>
+                    </div>
+
+                    <!-- Card Content -->
+                    <div class="card-content">
+                        <div class="photo-section">
+                            <div class="student-photo">
+                                <img src="chiini.jpeg" alt="Chiini Lin">
+                            </div>
+                            <div class="student-label">STUDENT</div>
+                        </div>
+                        
+                        <div class="info-grid">
+                            <div class="info-column">
+                                <div class="info-row">
+                                    <span class="label">Name</span>
+                                    <span class="value">Chiini Lin</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="label">Study</span>
+                                    <span class="value">Media Technology</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="label">Birthday</span>
+                                    <span class="value">13th October 1998</span>
+                                </div>
+                            </div>
+                            <div class="info-column">
+                                <div class="info-row">
+                                    <span class="label">Student ID</span>
+                                    <span class="value">s2183052</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="label">Study Year</span>
+                                    <span class="value" id="study-year">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QR Code Section -->
+                    <div class="qr-section">
+                        <div class="qr-code">
+                            <div class="qr-placeholder">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                        </div>
+                        <div class="qr-info">
+                            <div class="update-title">Most recent update:</div>
+                            <div class="timestamp-row">
+                                <div class="timestamp" id="id-timestamp">Loading...</div>
+                                <i class="fas fa-sync-alt refresh-icon" id="refresh-timestamp" onclick="refreshTimestamp()"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Refreshing...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
